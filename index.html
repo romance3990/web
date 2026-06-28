@@ -9,51 +9,9 @@
      <h1>take a break</h1>
      <img src="welcome.png" alt="welcome" />
      <h2>music</h2>
-     <ul id="playlist">
-       <li data-src="Romance.mp3">로맨스</li>
-       <li data-src="Rurus suicide show on a livestream.mp3">루루쨩의자살방송</li>
-       <li data-src="夕方のピアノ.mp3">해질녘의피아노</li>
-     </ul>
-
-     <audio id="audioPlayer" controls></audio>
-     <br>
-     <button id="repeatBtn">전체 반복: 끔</button>
-
-     <script>
-       const audioPlayer = document.getElementById('audioPlayer');
-       const playlistItems = document.querySelectorAll('#playlist li');
-       const repeatBtn = document.getElementById('repeatBtn');
-       let currentIndex = 0;
-       let isRepeatAll = false;
-
-       function playSong(index) {
-         currentIndex = index;
-         audioPlayer.src = playlistItems[index].getAttribute('data-src');
-         audioPlayer.play();
-       }
-
-       playlistItems.forEach((item, index) => {
-         item.addEventListener('click', () => {
-           playSong(index);
-         });
-       });
-
-       audioPlayer.addEventListener('ended', () => {
-         currentIndex++;
-         if (currentIndex < playlistItems.length) {
-           playSong(currentIndex);
-         } else if (isRepeatAll) {
-
-           playSong(0);
-         }
-       });
-
-       repeatBtn.addEventListener('click', () => {
-         isRepeatAll = !isRepeatAll;
-         repeatBtn.textContent = isRepeatAll ? "전체 반복: 켬" : "전체 반복: 끔";
-       });
-     </script>
-
+     <video width="33%" controls poster="music.png" playsinline>
+         <source src="music.mp4" type="video/mp4">
+     </video>
   </script>
 </body>
 </html>
